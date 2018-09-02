@@ -1,5 +1,15 @@
 [
     {
+        "id": 2,
+        "kategori": "hovedretter",
+        "navn": "Bulgarsk bondesuppe",
+        "pris": 99,
+        "kortbeskrivelse": "Cauceskus bulgarske bondesuppe",
+        "langbeskrivelse": "Da Caucesku var i færd med at skrive sit navn med højhuse, var han nødt til at give håndværkerne solid kost, så de kunne arbejde 18 timer i døgnet, 7 dage om ugen: Bulgarsk bondesuppe. Suppen består af alt det bedste fra Bulgarien.",
+        "oprindelsesregion": "Bulgarien",
+        "billede": "bulgarskbondesuppe"
+  },
+    {
         "id": 10,
         "kategori": "forretter",
         "navn": "Russisk ringbrød",
@@ -49,16 +59,7 @@
         "oprindelsesregion": "Østsibirien",
         "billede": "kaalsuppe"
   },
-    {
-        "id": 2,
-        "kategori": "hovedretter",
-        "navn": "Bulgarsk bondesuppe",
-        "pris": 99,
-        "kortbeskrivelse": "Cauceskus bulgarske bondesuppe",
-        "langbeskrivelse": "Da Caucesku var i færd med at skrive sit navn med højhuse, var han nødt til at give håndværkerne solid kost, så de kunne arbejde 18 timer i døgnet, 7 dage om ugen: Bulgarsk bondesuppe. Suppen består af alt det bedste fra Bulgarien.",
-        "oprindelsesregion": "Bulgarien",
-        "billede": "bulgarskbondesuppe"
-  },
+
     {
         "id": 21,
         "kategori": "hovedretter",
