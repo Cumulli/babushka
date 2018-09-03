@@ -7,10 +7,14 @@
     <title></title>
 </head>
 
+
 <style>
-  img {
-        max-width: 200px;
-    }
+    .data-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /*grid-template-rows: 100px 100px 100px;
+            grid-gap: 5px;
+        }
 
 </style>
 
@@ -22,13 +26,14 @@
         <article>
             <h2></h2>
             <p class="data-id">Nr.</p>
+             <img src="" alt="">
             <p class="data-kategori">Kategori:</p>
             <p class="data-navn">Navn:</p>
             <p class="data-pris">Pris:</p>
             <p class="data-kortbeskrivelse"></p>
             <p class="data-langbeskrivelse"></p>
             <p class="data-oprindelsesregion"></p>
-           <img src="" alt="">
+
         </article>
 
     </template>
@@ -56,18 +61,19 @@
                 let klon = temp.cloneNode(true).content;
                 //klon.querySelector("h2").textContent = person.navn;
                 klon.querySelector(".data-id").textContent = mad.id;
+                klon.querySelector("img").src = mad.billede;
                 klon.querySelector(".data-kategori").textContent = mad.kategori;
                 klon.querySelector(".data-navn").textContent = mad.navn;
                 klon.querySelector(".data-pris").textContent = mad.pris;
                 klon.querySelector(".data-kortbeskrivelse").textContent = mad.kortbeskrivelse;
                 klon.querySelector(".data-langbeskrivelse").textContent = mad.langbeskrivelse;
                 klon.querySelector(".data-oprindelsesregion").textContent = mad.oprindelsesrigion;
-                klon.querySelector("img").src = mad.billede;
                 //placer klon i html
                 modtager.appendChild(klon);
 
             })
         }
+
     </script>
 
 </body>
