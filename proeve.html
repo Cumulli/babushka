@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BISTRO BABUSHKA</title>
+</head>
+
+
+<style>
+    body {
+        background-color: darkorange;
+    }
+
+    article {
+        padding: 1em;
+        background-color: darkorange;
+    }
+
+    article:nth-child(odd) {
+        background: orange;
+    }
+
+    .data-container article img {
+        width: 100%;
+    }
+
+    .data-container {
+        margin: 0 auto;
+        display: grid;
+    }
+
+    @media screen and (min-width:580px) {
+        .data-container {
+            padding-left: 10%;
+            padding-right: 10%;
+            grid-gap: 6px;
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+</style>
+
+<body>
+
+    <header>
+        <h1></h1>
+        <nav>
+            <button class="menu-item" data-ret="alle">Alle Retter</button>
+            <button class="menu-item" data-ret="drikkevarer">Drikkevarer</button>
+            <button class="menu-item" data-ret="sideorder">Sideorders</button>
+            <button class="menu-item" data-ret="forretter">Forretter</button>
+            <button class="menu-item" data-ret="hovedretter">Hovedretter</button>
+            <button class="menu-item" data-ret="desserter">Desserter</button>
+        </nav>
+    </header>
+
+    <section class="data-container"></section>
+
+    <template class="data-template">
+        <article>
+            <h2></h2>
+             <img src="" alt="">
+            <p class="data-kategori">Kategori:</p>
+
+            <p class="data-pris">Pris:</p>
+            <p class="data-kortbeskrivelse"></p>
+            <span class="data-ret"></span><br>
+
+        </article>
+
+    </template>
+
+    <script>
+
+        let dest = document.querySelector(".data-container"),
+            ret, madfilter = "alle";
+
+        document.addEventListener("DOMContentLoaded", hentJson);
+
+        let mad;
+
+        async function hentJson() {
+            let myJson = await fetch("menu.json");
+            mad = await myJson.json();
+            console.log(mad[0]);
+
+            visMad();
+        }
+
+
+
+        /*document.querySelectorAll(".menu-item").forEach(knap => {
+        knap.addEventListener("click", filtrering)
+        });
+
+        /*function filtrering(){
+            dest.textContent ="";
+            madfilter=this.getAttribute(".data-ret");
+            visMad();
+        }*/
+
+
+        function visMad() {
+            let modtager = document.querySelector(".data-container");
+            let temp = document.querySelector(".data-template");
+
+            //løb personliste igennem og lav en klon.
+
+           /* mad.forEach(ret => {
+                if(ret.kategori==ret || ret=="alle")*/
+
+                let klon = temp.cloneNode(true).content;
+                klon.querySelector("h2").textContent = ret.navn;
+                klon.querySelector("img").src = "babushka/imgs/small/" + ret.billede + "-sm.jpg";
+                klon.querySelector(".data-kategori").textContent = ret.kategori;
+                klon.querySelector(".data-navn").textContent = ret.navn;
+                klon.querySelector(".data-pris").textContent = ret.pris;
+                klon.querySelector(".data-kortbeskrivelse").textContent = ret.kortbeskrivelse;
+                klon.querySelector(".data-ret").textContent = ret.ret;
+                //placer klon i html
+                modtager.appendChild(klon);
+
+            })
+        }
+    </script>
+
+</body>
+
+</html>
